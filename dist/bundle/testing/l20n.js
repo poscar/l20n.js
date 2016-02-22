@@ -1,4 +1,5 @@
-(function () { 'use strict';
+(function () {
+  'use strict';
 
   const observerConfig = {
     attributes: true,
@@ -42,7 +43,7 @@
       'mark', 'ruby', 'rt', 'rp', 'bdi', 'bdo', 'span', 'br', 'wbr'
     ],
     attributes: {
-      global: [ 'title', 'aria-label', 'aria-valuetext', 'aria-moz-hint' ],
+      global: [ 'title', 'aria-label', 'aria-valuetext', 'aria-moz-hint', 'class' ],
       a: [ 'download' ],
       area: [ 'download', 'alt' ],
       // value is special-cased in isAttrAllowed
@@ -318,15 +319,15 @@
   }
 
 
-  var dom = {
+  var dom = Object.freeze({
     setAttributes: setAttributes,
     getAttributes: getAttributes,
     translateMutations: translateMutations,
     translateFragment: translateFragment
-  };
+  });
 
   window.L20n = {
     dom
   };
 
-})();
+}());

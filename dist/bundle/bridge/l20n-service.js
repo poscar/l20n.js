@@ -1,11 +1,5 @@
-(function () { 'use strict';
-
-  const Service = bridge.service;
-  const channel = new BroadcastChannel('l20n-channel');
-
-  function broadcast(type, data) {
-    return this.service.broadcast(type, data);
-  }
+(function () {
+  'use strict';
 
   function L10nError(message, id, lang) {
     this.name = 'L10nError';
@@ -76,6 +70,13 @@
     const url = res.replace('{locale}', code);
     const type = res.endsWith('.json') ? 'json' : 'text';
     return io[src](code, ver, url, type);
+  }
+
+  const Service = bridge.service;
+  const channel = new BroadcastChannel('l20n-channel');
+
+  function broadcast(type, data) {
+    return this.service.broadcast(type, data);
   }
 
   const KNOWN_MACROS = ['plural'];
@@ -2022,4 +2023,4 @@
     .on('disconnect', clientId => remote.unregisterView(clientId))
     .listen(channel);
 
-})();
+}());

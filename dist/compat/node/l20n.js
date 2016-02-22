@@ -27,7 +27,7 @@ function load(url) {
   });
 }
 
-function fetchResource$1(res, _ref) {
+function fetchResource(res, _ref) {
   var code = _ref.code;
 
   var url = res.replace('{locale}', code);
@@ -1719,9 +1719,9 @@ function removeEventListener(listeners, type, listener) {
   typeListeners.splice(pos, 1);
 }
 
-var Env$1 = (function () {
-  function Env$1(fetchResource) {
-    _classCallCheck(this, Env$1);
+var Env = (function () {
+  function Env(fetchResource) {
+    _classCallCheck(this, Env);
 
     this.fetchResource = fetchResource;
 
@@ -1739,7 +1739,7 @@ var Env$1 = (function () {
     this.removeEventListener = removeEventListener.bind(this, listeners);
   }
 
-  Env$1.prototype.createContext = function createContext(langs, resIds) {
+  Env.prototype.createContext = function createContext(langs, resIds) {
     var _this8 = this;
 
     var ctx = new Context(this, langs, resIds);
@@ -1751,7 +1751,7 @@ var Env$1 = (function () {
     return ctx;
   };
 
-  Env$1.prototype.destroyContext = function destroyContext(ctx) {
+  Env.prototype.destroyContext = function destroyContext(ctx) {
     var _this9 = this;
 
     ctx.resIds.forEach(function (resId) {
@@ -1768,7 +1768,7 @@ var Env$1 = (function () {
     });
   };
 
-  Env$1.prototype._parse = function _parse(syntax, lang, data) {
+  Env.prototype._parse = function _parse(syntax, lang, data) {
     var _this10 = this;
 
     var parser = this.parsers[syntax];
@@ -1782,7 +1782,7 @@ var Env$1 = (function () {
     return parser.parse.call(parser, emit, data);
   };
 
-  Env$1.prototype._create = function _create(lang, entries) {
+  Env.prototype._create = function _create(lang, entries) {
     if (lang.src !== 'pseudo') {
       return entries;
     }
@@ -1794,7 +1794,7 @@ var Env$1 = (function () {
     return pseudoentries;
   };
 
-  Env$1.prototype._getResource = function _getResource(lang, res) {
+  Env.prototype._getResource = function _getResource(lang, res) {
     var _this11 = this;
 
     var cache = this.resCache;
@@ -1826,7 +1826,7 @@ var Env$1 = (function () {
     return resource;
   };
 
-  return Env$1;
+  return Env;
 })();
 
 function amendError(lang, err) {
@@ -1834,5 +1834,5 @@ function amendError(lang, err) {
   return err;
 }
 
-exports.fetchResource = fetchResource$1;
-exports.Env = Env$1;
+exports.fetchResource = fetchResource;
+exports.Env = Env;

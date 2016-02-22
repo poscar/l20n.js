@@ -65,7 +65,7 @@ const io = {
   },
 };
 
-function fetchResource$1(res, { code, src, ver }) {
+function fetchResource(res, { code, src, ver }) {
   const url = res.replace('{locale}', code);
   const type = res.endsWith('.json') ? 'json' : 'text';
   return io[src](code, ver, url, type);
@@ -1780,7 +1780,7 @@ function removeEventListener(listeners, type, listener) {
   typeListeners.splice(pos, 1);
 }
 
-class Env$1 {
+class Env {
   constructor(fetchResource) {
     this.fetchResource = fetchResource;
 
@@ -1884,5 +1884,5 @@ function amendError(lang, err) {
   return err;
 }
 
-exports.fetchResource = fetchResource$1;
-exports.Env = Env$1;
+exports.fetchResource = fetchResource;
+exports.Env = Env;

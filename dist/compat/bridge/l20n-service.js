@@ -5,13 +5,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 (function () {
   'use strict';
 
-  var Service = bridge.service;
-  var channel = new BroadcastChannel('l20n-channel');
-
-  function broadcast(type, data) {
-    return this.service.broadcast(type, data);
-  }
-
   function L10nError(message, id, lang) {
     this.name = 'L10nError';
     this.message = message;
@@ -81,6 +74,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var url = res.replace('{locale}', code);
     var type = res.endsWith('.json') ? 'json' : 'text';
     return io[src](code, ver, url, type);
+  }
+
+  var Service = bridge.service;
+  var channel = new BroadcastChannel('l20n-channel');
+
+  function broadcast(type, data) {
+    return this.service.broadcast(type, data);
   }
 
   var KNOWN_MACROS = ['plural'];

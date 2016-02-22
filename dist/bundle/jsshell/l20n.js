@@ -1,4 +1,5 @@
-(function () { 'use strict';
+(function () {
+  'use strict';
 
   function L10nError(message, id, lang) {
     this.name = 'L10nError';
@@ -1387,4 +1388,4 @@
     format
   };
 
-})();
+}());

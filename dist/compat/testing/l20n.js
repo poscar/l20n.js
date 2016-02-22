@@ -41,7 +41,7 @@
   var allowed = {
     elements: ['a', 'em', 'strong', 'small', 's', 'cite', 'q', 'dfn', 'abbr', 'data', 'time', 'code', 'var', 'samp', 'kbd', 'sub', 'sup', 'i', 'b', 'u', 'mark', 'ruby', 'rt', 'rp', 'bdi', 'bdo', 'span', 'br', 'wbr'],
     attributes: {
-      global: ['title', 'aria-label', 'aria-valuetext', 'aria-moz-hint'],
+      global: ['title', 'aria-label', 'aria-valuetext', 'aria-moz-hint', 'class'],
       a: ['download'],
       area: ['download', 'alt'],
 
@@ -304,12 +304,12 @@
     reconnect(view);
   }
 
-  var dom = {
+  var dom = Object.freeze({
     setAttributes: setAttributes,
     getAttributes: getAttributes,
     translateMutations: translateMutations,
     translateFragment: translateFragment
-  };
+  });
 
   window.L20n = {
     dom: dom
