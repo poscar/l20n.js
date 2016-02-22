@@ -11,7 +11,8 @@ const allowed = {
     'mark', 'ruby', 'rt', 'rp', 'bdi', 'bdo', 'span', 'br', 'wbr'
   ],
   attributes: {
-    global: [ 'title', 'aria-label', 'aria-valuetext', 'aria-moz-hint' ],
+    global: [ 'title', 'aria-label', 'aria-valuetext', 'aria-moz-hint',
+      'class' ],
     a: [ 'download' ],
     area: [ 'download', 'alt' ],
     // value is special-cased in isAttrAllowed
@@ -192,4 +193,3 @@ function camelCaseToDashed(string) {
     })
     .replace(/^-/, '');
 }
-
