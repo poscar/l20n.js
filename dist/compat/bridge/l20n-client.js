@@ -140,7 +140,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var tmpl = element.ownerDocument.createElement('template');
         tmpl.innerHTML = value;
 
-        overlay(element, tmpl.content);
+        if (tmpl.content) {
+          overlay(element, tmpl.content);
+        }
       }
     }
 

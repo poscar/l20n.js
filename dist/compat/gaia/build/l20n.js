@@ -2352,7 +2352,9 @@ function overlayElement(element, translation) {
       var tmpl = element.ownerDocument.createElement('template');
       tmpl.innerHTML = value;
 
-      overlay(element, tmpl.content);
+      if (tmpl.content) {
+        overlay(element, tmpl.content);
+      }
     }
   }
 

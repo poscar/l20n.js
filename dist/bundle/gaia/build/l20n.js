@@ -2396,7 +2396,9 @@ function overlayElement(element, translation) {
       const tmpl = element.ownerDocument.createElement('template');
       tmpl.innerHTML = value;
       // overlay the node with the DocumentFragment
-      overlay(element, tmpl.content);
+      if (tmpl.content) {
+        overlay(element, tmpl.content);
+      }
     }
   }
 
