@@ -136,7 +136,9 @@
         const tmpl = element.ownerDocument.createElement('template');
         tmpl.innerHTML = value;
         // overlay the node with the DocumentFragment
-        overlay(element, tmpl.content);
+        if (tmpl.content) {
+          overlay(element, tmpl.content);
+        }
       }
     }
 
@@ -312,7 +314,10 @@
   }
 
   function getTranslatables(element) {
-    const nodes = Array.from(element.querySelectorAll('[data-l10n-id]'));
+    var nodes = [];
+    if (typeof element.querySelectorAll === 'function') {
+      nodes = Array.from(element.querySelectorAll('[data-l10n-id]'));
+    }
 
     if (typeof element.hasAttribute === 'function' &&
         element.hasAttribute('data-l10n-id')) {

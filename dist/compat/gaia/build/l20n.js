@@ -2352,7 +2352,9 @@ function overlayElement(element, translation) {
       var tmpl = element.ownerDocument.createElement('template');
       tmpl.innerHTML = value;
 
-      overlay(element, tmpl.content);
+      if (tmpl.content) {
+        overlay(element, tmpl.content);
+      }
     }
   }
 
@@ -2479,7 +2481,10 @@ var htmlEntities = {
 };
 
 function getTranslatables(element) {
-  var nodes = Array.from(element.querySelectorAll('[data-l10n-id]'));
+  var nodes = [];
+  if (typeof element.querySelectorAll === 'function') {
+    nodes = Array.from(element.querySelectorAll('[data-l10n-id]'));
+  }
 
   if (typeof element.hasAttribute === 'function' && element.hasAttribute('data-l10n-id')) {
     nodes.push(element);

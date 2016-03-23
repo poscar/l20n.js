@@ -2175,7 +2175,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var tmpl = element.ownerDocument.createElement('template');
         tmpl.innerHTML = value;
 
-        overlay(element, tmpl.content);
+        if (tmpl.content) {
+          overlay(element, tmpl.content);
+        }
       }
     }
 
@@ -2316,7 +2318,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   }
 
   function getTranslatables(element) {
-    var nodes = Array.from(element.querySelectorAll('[data-l10n-id]'));
+    var nodes = [];
+    if (typeof element.querySelectorAll === 'function') {
+      nodes = Array.from(element.querySelectorAll('[data-l10n-id]'));
+    }
 
     if (typeof element.hasAttribute === 'function' && element.hasAttribute('data-l10n-id')) {
       nodes.push(element);
