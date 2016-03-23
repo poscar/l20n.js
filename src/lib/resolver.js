@@ -4,8 +4,8 @@ const KNOWN_MACROS = ['plural'];
 const MAX_PLACEABLE_LENGTH = 2500;
 
 // Unicode bidi isolation characters
-const FSI = '\u2068';
-const PDI = '\u2069';
+const FSI = '<bdi>';
+const PDI = '</bdi>';
 
 const resolutionChain = new WeakSet();
 

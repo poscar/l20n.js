@@ -1,8 +1,8 @@
 'use strict';
 
 // Unicode bidi isolation characters
-export const FSI = '\u2068';
-export const PDI = '\u2069';
+export const FSI = '<bdi>';
+export const PDI = '</bdi>';
 
 // > isolate('Hello, world.');
 // '\u2068Hello, world\u2069.'
